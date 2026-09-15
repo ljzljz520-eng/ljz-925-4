@@ -1,0 +1,22 @@
+# 敏感文件保护（Apache；Nginx 请见 README）
+<FilesMatch "\.(db|db-wal|db-shm|log|ini|sh|sql)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+<FilesMatch "^(config)\.php$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# 目录列表关闭
+Options -Indexes

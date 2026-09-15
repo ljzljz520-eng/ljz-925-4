@@ -23,3 +23,9 @@ __pycache__/
 *.log
 .env
 .env.*
+
+# trial-download runtime secrets and generated data
+trial-download/data/app.db*
+trial-download/data/config.php
+trial-download/downloads/*
+!trial-download/downloads/.gitkeep
